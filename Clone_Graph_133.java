@@ -6,6 +6,7 @@
  *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
  * };
  */
+ 
 public class Solution {
     
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
@@ -17,44 +18,47 @@ public class Solution {
 
 
 class Solution_1 {
-    private List<UndirectedGraphNode> nodes; 
-    private List<UndirectedGraphNode> newNodes;
+    private ArrayList<UndirectedGraphNode> nodes; 
+    private ArrayList<UndirectedGraphNode> newNodes;
     
     public Solution_1() {
-        this.nodes = new List<UndirectedGraphNode>() ;
-        this.newNodes = new List<UndirectedGraphNode>() ;
+        this.nodes = new ArrayList<UndirectedGraphNode>() ;
+        this.newNodes = new ArrayList<UndirectedGraphNode>() ;
     }
     
-    private void work(UndirectedGraphNode node) {
+    public UndirectedGraphNode work(UndirectedGraphNode node) {
+        if (node == null) {return null ;}
+        
         dfs(node) ;
-        foreach(UndirectedGraphNode curNode: this.nodes) {
-            UndirectedGraphNode builtNode = new UndirectedGraphNode(curNode.label) ; 
+        for (UndirectedGraphNode curNode : this.nodes) {
+            UndirectedGraphNode builtNode = findNode(curNode.label) ;
             this.newNodes.add(builtNode) ;
-            foreach(UndirectedGraphNode neighbor: curNode.neighbors) {
+            for (UndirectedGraphNode neighbor: curNode.neighbors) {
                 int label = neighbor.label ;
-                UndirectedGraphNode tempNode = findNode(label, this.newNodes) ;
+                UndirectedGraphNode tempNode = findNode(label) ;
                 builtNode.neighbors.add(tempNode) ;
             }
         }
-        return this.newNodes;
+        return findNode(node.label);
     }
     
     private void dfs(UndirectedGraphNode root) {
-        if (root == NULL) {return ;}
+        if (root == null) {return ;}
         this.nodes.add(root) ;
-        foreach(UndirectedGraphNode neighbor: root.neighbors) {
+        for (UndirectedGraphNode neighbor: root.neighbors) {
+            if (this.nodes.contains(neighbor)) {continue; }
             dfs(neighbor) ; 
         }
     }
     
     private UndirectedGraphNode findNode(int flag) {
-        foreach(UndirectedGraphNode curNode : this.newNodes) {
+        for (UndirectedGraphNode curNode : this.newNodes) {
             if (curNode.label == flag) {
                 return curNode ;
             }
-            UndirectedGraphNode tempNode = new UndirectedGraphNode(flag) ;
-            this.newNodes.add(tempNode) ;
-            return tempNode ;
         }
+        UndirectedGraphNode tempNode = new UndirectedGraphNode(flag) ;
+        this.newNodes.add(tempNode) ;
+        return tempNode ;
     }
 }
