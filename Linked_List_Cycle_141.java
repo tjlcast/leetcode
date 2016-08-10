@@ -13,7 +13,7 @@
  
 public class Solution {
     
-    String __author__ = 'tangjialiang'
+    String __author__ = "tangjialiang" ; 
     
     private ListNode headNode = null ;
     
