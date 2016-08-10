@@ -18,7 +18,8 @@ public class Solution {
 }
 
 class Solution_1 {
-    private String __error__ = "time limit" ;
+    private String __V__ = "test_V" ;
+    private String __error__ = 'time limit' ;
     
     public Solution_1() {} 
     
@@ -54,6 +55,10 @@ class Solution_1 {
 
 
 class Solution_2 {
+    
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "success_V" ;
+    
     public Solution_2() {}
     
     public ListNode work(ListNode head) {
@@ -90,16 +95,16 @@ class Solution_2 {
         ListNode resultList = new ListNode(-1) ;
         ListNode resultCur = resultList ;
         
-        while(h1!=null && h2!=null) {
-            int h1Value = (h1!=null) ? h1.val : 9999 ;
-            int h2Value = (h2!=null) ? h2.val : 9999 ;
+        while(h1!=null || h2!=null) {
+            int h1Value = (h1!=null) ? h1.val : 9999999 ;
+            int h2Value = (h2!=null) ? h2.val : 9999999 ;
             
             if (h1Value < h2Value) {
                 resultCur.next = h1 ;
-                h1 = (h1!=null) ? h1.next : null ;
+                h1 = h1.next ;
             } else {
                 resultCur.next = h2 ;
-                h2 = (h2!=null) ? h2.next : null ;
+                h2 = h2.next ;
             }
             resultCur = resultCur.next ;
             resultCur.next = null ;
