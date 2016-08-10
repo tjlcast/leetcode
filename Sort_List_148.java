@@ -18,15 +18,20 @@ public class Solution {
 }
 
 class Solution_1 {
+    private String __error__ = "time limit" ;
+    
     public Solution_1() {} 
     
     public ListNode work(ListNode head) {
-        ListNode workNode = null ;
-        ListNode resultHead = new ListNode() ;
+        ListNode workNode = head ;
+        ListNode resultHead = new ListNode(-1) ;
         
         while(workNode!=null) {
-            insertIntoList(workNode, resultHead) ;
+            ListNode item = workNode ;
             workNode = workNode.next ;
+            
+            item.next = null ;  // 减除resultset与sheng xiashengxia
+            insertIntoList(item, resultHead) ;
         }
         return resultHead.next ;
     }
