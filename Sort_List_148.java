@@ -8,7 +8,8 @@
  */
 public class Solution {
     
-    private String author = 'tangjialiang'
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "test_V" ;
     
     public ListNode sortList(ListNode head) {
         Solution_1 s = new Solution_1() ;
