@@ -9,6 +9,8 @@
  
 public class Solution {
     
+    private String __author__ = 'tangjialiang' ;
+    
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         Solution_1 s = new Solution_1() ;
         return s.work(node) ;
