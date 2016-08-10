@@ -1,0 +1,27 @@
+public class LRUCache {
+    
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "code_V" ;
+    
+    private HashMap<String, Integer> cache ;
+    private int cacheSize ;
+    
+    public LRUCache(int capacity) {
+        cache = new HashMap<String Integer>() ;
+        cacehSize = capacity ;
+    }
+    
+    public int get(int key) {
+        return cache[key] ;
+    }
+    
+    public void set(int key, int value) {
+        
+    }
+}
+
+class Node {
+    public int val ;
+    public int time ;
+    public Node(val) {this.val = val; time=0}
+}
