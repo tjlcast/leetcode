@@ -10,7 +10,7 @@
 public class Solution {
     
     private String author = "tangjialiang" ;
-    private String V = 'success_V'
+    private String V = "success_V" ;
     
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         Solution_1 s = new Solution_1() ;
