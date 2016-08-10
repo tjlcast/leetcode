@@ -7,6 +7,9 @@
  * }
  */
 public class Solution {
+    
+    private String __author__ = 'tangjialiang'
+    
     public ListNode sortList(ListNode head) {
         Solution_1 s = new Solution_1() ;
         return s.work(head) ;
