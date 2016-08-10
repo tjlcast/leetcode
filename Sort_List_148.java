@@ -19,7 +19,8 @@ public class Solution {
 
 class Solution_1 {
     private String __V__ = "test_V" ;
-    private String __error__ = 'time limit' ;
+    private String __error__ = "time limit" ;
+    private String __desc__ = "把链表分成两段，进行归并操作" ;
     
     public Solution_1() {} 
     
