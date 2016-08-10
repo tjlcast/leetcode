@@ -9,7 +9,7 @@
  
 public class Solution {
     
-    private String __author__ = 'tangjialiang' ;
+    private String author = 'tangjialiang' ;
     
     public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
         Solution_1 s = new Solution_1() ;
