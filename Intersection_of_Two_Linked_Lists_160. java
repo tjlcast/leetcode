@@ -1,0 +1,73 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "success_V" ;
+    
+    public ListNode getIntersectionNode(ListNode lA, ListNode lB) {
+        ListNode headA = lA ;
+        ListNode headB = lB ;
+        int lenA = getLengthOfList(headA) ;
+        int lenB = getLengthOfList(headB) ;
+        
+        if (lenA > lenB) {
+            int steps = lenA - lenB ;
+            headA = moveFromHead(headA, steps) ;
+        } else {
+            int steps = lenB - lenA ;
+            headB = moveFromHead(headB, steps) ;
+        }
+        
+        while(headA != headB) {
+            headA = (headA==null) ? null : headA.next ;
+            headB = (headB==null) ? null : headB.next ;
+        }
+        return headA ;
+    }
+    
+    
+    private int getLengthOfList(ListNode list) {
+        ListNode head = list ;
+        int len = 0 ;
+        
+        while(head != null) {
+            len++ ;
+            head = head.next ;
+        }
+        return len ;
+    }
+    
+    private ListNode moveFromHead(ListNode list, int steps) {
+        ListNode head = list ;
+        
+        while(head != null) {
+            if (steps == 0) {
+                return head ;
+            }
+            head = head.next ;
+            steps-- ;
+        }
+        return head ;
+    }
+}
