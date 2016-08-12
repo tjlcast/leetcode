@@ -1,32 +1,46 @@
 public class Solution {
-    private String __author__ = 'tangjialiang' ;
-    private String __V__ = 'code_V' ;
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "code_V" ;
     
     
     public String reverseWords(String s) {
-        
+        return work(s) ;
     }
     
     private String work(String s) {
-        if (s.length == 0) {return s; }
-        char[] words = s.toArray()
-        
-        swap(words, 0, words.length-1) ;
-        int head = 0;
-        for(int tail=0; tail<words.length; tail++) {
-            if (words[tail] == ' ') {
-                swap(words, begin, tail-1) ;
-                head = tail + 1 ;
-            }
-        }
+        String[] words = s.split(" ") ;
+        swapString(words) ;
+        return join(words, " ") ;
     }
     
-    private void swap(char[] words, int begin, int end) {
+    private void swapString(String[] words) {
+        System.out.println("len : " + words.length) ;
+        for (int i=0; i<words.length; i++) {
+            System.out.println(i +" : "+ words[i]) ;
+        }
+        if (words.length == 0) {return ;}
         
+        int begin = 0 ;
+        int end = words.length-1 ;
         while(begin < end) {
-            char tempWord = words[begin] ;
-            words[begin] = words[end] ;
+            String tempWord = words[begin++] ;
+            words[begin] = words[end--] ;
             words[end] = tempWord ;
         }
+        return ;
     }
+    
+    private String join(String[] words, String op) {
+        if (words.length == 0) {return "" ;}
+        StringBuffer sb = new StringBuffer() ;
+        
+        for (int i=0; i<words.length; i++) {
+            String word = "";
+            if (i == 0) {word = words[i] ;} 
+            else {word = op+word ;}
+            sb.append(word) ;
+        }
+        return sb.toString() ;
+    }
+    
 }
