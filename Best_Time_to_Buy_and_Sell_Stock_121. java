@@ -1,0 +1,25 @@
+public class Solution {
+    
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "test_V" ;
+    private String __error__ = "time_limit" ;
+    
+    public int maxProfit(int[] prices) {
+        return work(prices) ;
+    }
+    
+    private int work(int[] prices) {
+        int ans = 0 ;
+        
+        for(int i=0; i<prices.length-1; i++) {
+            int buyPrice = prices[i] ;
+            for(int j=i+1; j<prices.length; j++) {
+                if (prices[j] > buyPrice) {
+                    ans = (prices[j] - buyPrice > ans) ? (prices[j] - buyPrice) : (ans) ;
+                }
+            }
+        }
+        
+        return ans ;
+    }
+}
