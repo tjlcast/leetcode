@@ -1,0 +1,65 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+  
+  private String __author__ = "tangjialiang" ;
+  private String __testV__ = "test_V" ;
+  
+	private ArrayList<Integer> recorderP ;
+	private ArrayList<Integer> recorderL ;
+
+	public Solution() {
+		recorderP = new ArrayList<Integer>() ;
+		recorderL = new ArrayList<Integer>() ;
+	}
+
+    public boolean isSymmetric(TreeNode root) {
+        return work(root) ;
+    }
+
+    private boolean work(TreeNode root) {
+    	preDFS(root) ;
+    	lastDFS(root) ;
+    	boolean ans = judge() ;
+    	return ans ;
+    }
+
+    private void preDFS(TreeNode root) {
+    	if (root == null) return ;
+
+    	preDFS(root.left) ;
+    	int val = root.val ;
+    	recorderP.add(new Integer(val)) ;
+    	preDFS(root.right) ;
+    }
+
+    private void lastDFS(TreeNode root) {
+    	if (root == null) return ;
+
+    	lastDFS(root.right) ;
+    	int val = root.val ;
+    	recorderL.add(new Integer(val)) ;
+    	lastDFS(root.left) ;
+    }
+
+    private boolean judge() {
+    	
+    	if (recorderL.size() != recorderP.size()) return false ;
+    	int len = recorderL.size() ;
+    	
+    	for(int i=0; i<len; i++) {
+    	    if (!recorderL.get(i).equals(recorderP.get(i))) {
+    	        System.out.println(recorderL.get(i) + " " + recorderP.get(i)) ;
+    	        return false ;
+    	    }
+    	}
+    	return true ;
+    }
+}
