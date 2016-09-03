@@ -14,8 +14,6 @@ public class Solution {
 
     	for(int i=1; i<=numRows; i++) {
     	    
-    	    System.out.println("Hello world" + i) ;
-    	    
     		ArrayList<Integer> tempRow = new ArrayList<Integer>() ;
     		tempRow.add(new Integer(1)) ;
     		tempRow.add(new Integer(1)) ;
@@ -33,7 +31,6 @@ public class Solution {
     			}
     		}
     		
-    		for(int t=0; t<tempRow.size(); t++)System.out.println(tempRow.get(t)) ;
     		rows.add(tempRow) ;
     	}
 
