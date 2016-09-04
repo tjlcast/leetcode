@@ -1,0 +1,33 @@
+public class Solution {
+    
+    String __author__ = "tangjialiang" ;
+    String __V__ = "success_V" ;
+    
+    public int minimumTotal(List<List<Integer>> triangle) {
+
+        int ans = Solution1.work(triangle) ;
+        return ans ;
+    }
+    
+}
+
+class Solution1 {
+    
+    public static int work(List<List<Integer>> triangle) {
+        
+        List<List<Integer>> dp = triangle ;
+        
+        for(int i=dp.size()-2; i>=0; i--) {
+            List<Integer> curRow = dp.get(i) ;
+            List<Integer> lastRow = dp.get(i+1) ;
+            
+            for(int j=0; j<curRow.size(); j++) {
+                int val = (lastRow.get(j) < lastRow.get(j+1))?(lastRow.get(j)):(lastRow.get(j+1)) ;
+                curRow.set(j, new Integer(curRow.get(j) + val)) ;
+            }
+        }
+        
+        return triangle.get(0).get(0) ;
+    }
+    
+}
