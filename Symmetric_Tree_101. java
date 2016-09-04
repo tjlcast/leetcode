@@ -7,11 +7,13 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+  
 public class Solution {
-  
-  private String __author__ = "tangjialiang" ;
-  private String __testV__ = "test_V" ;
-  
+    
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "success_V" ;
+
 	private ArrayList<Integer> recorderP ;
 	private ArrayList<Integer> recorderL ;
 
@@ -21,7 +23,8 @@ public class Solution {
 	}
 
     public boolean isSymmetric(TreeNode root) {
-        return work(root) ;
+        //return work(root) ;
+        return Solution1.work(root) ;
     }
 
     private boolean work(TreeNode root) {
@@ -62,4 +65,29 @@ public class Solution {
     	}
     	return true ;
     }
+}
+
+
+class Solution1 {
+    
+    public static boolean work(TreeNode root) {
+        if (root == null) return true ;
+        
+        return isSame(root.left, root.right) ;
+    }
+    
+    private static boolean isSame(TreeNode leftNode, TreeNode rightNode) {
+        
+        boolean flag = true ;
+        try{
+            if(leftNode.val == rightNode.val){ flag = true; }
+            else {return false ;}
+        } catch(Exception e) {
+            if (leftNode==null && rightNode==null) {return true ;}
+            return false ;
+        }
+        
+        return (flag && isSame(leftNode.left, rightNode.right) && isSame(leftNode.right, rightNode.left)) ;
+    }
+    
 }
