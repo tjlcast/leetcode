@@ -27,6 +27,7 @@ public class Solution {
         
         while(queue.size() != 0) {
             TreeLinkNode curNode = queue.removeLast() ;
+            System.out.println(curNode.val + " " + queue.size()) ;
             
             if (curNode == tempNullNode) {
                 if (queue.size() == 0) break ;
@@ -37,8 +38,8 @@ public class Solution {
                 lastNode = curNode ;
             }
             
-            if(curNode.left != null) queue.addFirst(curNode.right);
-            if(curNode.right != null) queue.addFirst(curNode.left) ;
+            if(curNode.right != null) queue.addFirst(curNode.right) ;
+            if(curNode.left != null) queue.addFirst(curNode.left) ;
         }
     }
     
