@@ -7,34 +7,39 @@
  * }
  */
 public class Solution {
-
-    private String __author__ = "tangjialiang" ;
-    private String __V__ = "test_V" ;
-
+    
+    String __author__ = "tangjialiang" ;
+    String __V__ = "success_V" ;
+    
     public void connect(TreeLinkNode root) {
-        work(root) ;
+        if(root == null) {return ;}
+        
+        bfs(root) ;
     }
     
-    private void work(TreeLinkNode root) {
+    private void bfs(TreeLinkNode root) {
         LinkedList<TreeLinkNode> queue = new LinkedList<TreeLinkNode>() ;
-        
-        queue.addFirst(null) ;
-        queue.addFirst(root) ;
-        
+        TreeLinkNode tempNullNode = new TreeLinkNode(-1) ;
         TreeLinkNode lastNode = null ;
+        
+        queue.addFirst(root) ;
+        queue.addFirst(tempNullNode) ;
+        
         while(queue.size() != 0) {
-            TreeLinkNode tempNode = queue.removeLast() ;
-            if (tempNode == null && lastNode == null) {break ;}
+            TreeLinkNode curNode = queue.removeLast() ;
             
-            if (tempNode != null) {
-                 tempNode.next = lastNode ;
-                if (tempNode.right != null)queue.addFirst(tempNode.right) ;
-                if (tempNode.left != null)queue.addFirst(tempNode.left) ;
+            if (curNode == tempNullNode) {
+                if (queue.size() == 0) break ;
+                lastNode = null ;
+                queue.addFirst(curNode) ;
             } else {
-                queue.addFirst(null) ;
+                curNode.next = lastNode ;
+                lastNode = curNode ;
             }
             
-            lastNode = tempNode ;
+            if(curNode.left != null) queue.addFirst(curNode.right);
+            if(curNode.right != null) queue.addFirst(curNode.left) ;
         }
     }
+    
 }
