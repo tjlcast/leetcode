@@ -1,0 +1,63 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    
+    String __author__ = "tangjialiang" ;
+    String __V__ = "success_V" ;
+    
+    
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        return new Solution1().work(root) ;
+    }
+    
+}
+
+
+class Solution1 {
+    
+    public ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>() ;
+    
+    public List<List<Integer>> work(TreeNode root) {
+        
+        if (root == null) return (ArrayList)ans ;
+        
+        ArrayList<TreeNode> r = new ArrayList<TreeNode>() ;
+        r.add(root) ;
+        
+        getLevel(r, -1) ;
+        
+        return (ArrayList) ans;
+    }
+    
+    private void getLevel(ArrayList<TreeNode> curNodes, int direction) {
+        //System.out.println("d: " + direction) ;
+        ArrayList<TreeNode> childNodes = new ArrayList<TreeNode>() ;
+        
+        ArrayList<Integer> printList = new ArrayList<Integer>() ;
+        for(TreeNode tempNode : curNodes) {
+            //System.out.println("val: " + tempNode.val) ;
+            printList.add(new Integer(tempNode.val)) ;
+            
+            if (direction == -1) {
+                if (tempNode.left != null) childNodes.add(0, tempNode.left) ;
+                if (tempNode.right != null) childNodes.add(0, tempNode.right) ;   
+            } else {
+                if (tempNode.right != null) childNodes.add(0, tempNode.right) ;   
+                if (tempNode.left != null) childNodes.add(0, tempNode.left) ;
+            }
+        }
+        ans.add(printList) ;
+        
+        
+        if (childNodes.size() != 0) {
+            getLevel(childNodes, direction*(-1)) ;
+        }
+    }
+}
