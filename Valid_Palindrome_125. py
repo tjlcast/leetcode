@@ -1,0 +1,26 @@
+
+import re 
+
+class Solution(object):
+    
+    __author__ = 'tangjialiang'
+    __V__ = 'success_V'
+    
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s = s.upper() 
+        notNum = re.findall(r"\W", s)
+        notNum = list(set(notNum))
+        
+        for p in notNum: 
+            s = s.replace(p, '')
+            
+        if s == s[::-1]:
+            return True 
+        return False
+        
+        
+        
