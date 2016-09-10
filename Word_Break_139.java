@@ -1,8 +1,4 @@
 public class Solution {
-
-    private String __author__ = "tangjialiang" ;
-    private String __V__ = "success_V" ;
-
     public boolean wordBreak(String s, Set<String> wordDict) {
         return new Solution1().work(s, wordDict) ;
     }
@@ -10,6 +6,10 @@ public class Solution {
 
 
 class Solution1 {
+    
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "success_V" ;
+    
     public boolean work(String s, Set<String> wordDict) {
         if (wordDict.isEmpty()) return false ;
         if (s.length()==0) return true ;
