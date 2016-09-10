@@ -1,0 +1,28 @@
+class Solution(object):
+    
+    __author__ = "tangjialiang"
+    __V__ = "success_V"
+    
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums = sorted(nums)
+        # print 'num:' + str(nums)
+        return self.judgeNotThree(nums)
+        
+    def judgeNotThree(self, nums):
+        i = 0 
+        numsLen = len(nums)
+        while (i<numsLen) : 
+            num = nums[i]
+            j = i
+            while (j<numsLen and nums[j]==num):
+                j+=1
+            print "i: " + str(i) + " j: " + str(j)
+            if (j-i != 3):
+                return nums[i]
+            i = j
+        
+        return None137. Single Number II
