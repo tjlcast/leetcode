@@ -9,10 +9,13 @@ class Solution(object):
 
 class Solution1:
     
+    __author__ = "tangjialiang"
+    __V__ = "success_V"
+    
     def work(self, path):
         pathNodes = path.split('/')
         pathNodes = filter(lambda x: x!='.' and x!='', pathNodes)
-        print str(pathNodes)
+        # print str(pathNodes)
         
         path = []
         for node in pathNodes:
@@ -24,5 +27,4 @@ class Solution1:
         
         ans = '/'.join(path)
         
-        return ans
-    
+        return '/'+ans
