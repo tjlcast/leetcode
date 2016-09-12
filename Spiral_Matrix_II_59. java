@@ -1,0 +1,72 @@
+public class Solution {
+    public int[][] generateMatrix(int n) {
+        return new Solution1().work(n) ;
+    }
+}
+
+class Solution1 {
+    
+    private String __author__ = "tangjialinag" ;
+    private String __V__ = "success_V" ;
+    
+    int[][] map ;
+    boolean[][] flag ;
+    int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}} ;
+    int i, j; 
+    int d ;
+    int step ;
+    
+    public int[][] work(int n) {
+        if (n == 0) {
+            return  new int[0][0] ;
+        }
+        
+        init(n) ;
+        while(nextStep()){}
+        
+        return this.map ;
+    }
+    
+    private void init(int n) {
+        this.map = new int[n][n] ;
+        this.flag = new boolean[n+2][n+2] ;
+        for (int x=1; x<=n; x++) {
+            for(int y=1; y<=n; y++) {
+                this.flag[x][y] = true ;
+            }
+        }
+        this.i = 0 ;
+        this.j = 0 ;
+        this.d = 0 ;
+        this.step = 1 ;
+        
+        map[0][0] = 1;
+        flag[1][1] = false ;
+    }
+    
+    private boolean isChangeD() {
+        int newI = i+directions[d][0] ;
+        int newJ = j+directions[d][1] ;
+        if (flag[newI+1][newJ+1] == false) {
+            return true ;
+        }
+        return false ;
+    }
+    
+    private boolean nextStep() {
+
+        if (isChangeD()) {
+            d = (d+1)%4 ;
+        }
+        
+        i+=directions[d][0] ;
+        j+=directions[d][1] ;
+        if (flag[i+1][j+1] == false) {
+            return false ;
+        }
+        map[i][j] = ++step ;
+        flag[i+1][j+1] = false ;
+        
+        return true ;
+    }
+}
