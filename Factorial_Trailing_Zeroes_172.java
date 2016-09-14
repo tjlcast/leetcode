@@ -1,6 +1,21 @@
 public class Solution {
     public int trailingZeroes(int n) {
-        return new Solution1().work(n) ;
+        return new Solution2().work(n) ;
+    }
+}
+
+class Solution2 {
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "success_V" ;
+    
+    public int work(int n) {
+        int total = 0 ;
+        
+        while (n/5 != 0) {
+            n /= 5;
+            total += n ;
+        }
+        return total ;
     }
 }
 
@@ -18,7 +33,6 @@ class Solution1 {
         for(int i=1; i<=n; i++) {
             total += ((map.get(i)==null) ? (countS(i)) : (map.get(i))) ;
         }
-        
         return total ;
     }
     
@@ -32,8 +46,6 @@ class Solution1 {
         }
         
         map.put(new Integer(num), new Integer(count)) ;
-
         return count ;
     }
-    
 }
