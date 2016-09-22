@@ -1,80 +1,107 @@
-class Solution(object):
+
+public class Solution {
     
-    __author__ = 'tangjialiang'
-  
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "success_V" ;
+    private String __tips__ = "数字可能是多位，在识别数字的时候需要向前多扫描" ;
     
-    def calculate(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        s = s.replace(' ', '')
-        nums = []
-        ops = []
-        
-        #  work
-        i = 0
-        while i < len(s):
-            op = s[i]
-            print 'nums: ' + str(nums)
-            print 'op' + op
-            if self.isSuperOp(op):
-                total = 0
-                j = i + 1
-                while j<len(s) and self.isNum(s[j]):
-                    total = int(s[j]) + total*10 
-                    j += 1
-                i = j-1
-                nums.append(total)
-                b = nums.pop(); a = nums.pop() 
-                nums.append(self.count(a, b, op))
-            elif self.isLowOp(op):
-                ops.append(op) 
-            else:
-                total = 0
-                j = i
-                while j<len(s) and self.isNum(s[j]):
-                    total = int(s[j]) + total*10 
-                    j += 1
-                i = j-1
-                print 'total: ' + str(total)
-                nums.append(total)
-            i += 1
-        
-        while len(ops) != 0:
-            print 'ops: ' + str(ops) + ' nums: ' + str(nums)
-            op = ops.pop(0) 
-            a = nums.pop(0)
-            b = nums.pop(0); 
-            # print 'a: ' + str(a) + ' b: ' + str(b) + ' op: '
-            nums.insert(0, self.count(a, b, op))
-        
-        print 'ans: ' + str(nums)
-        return int(nums.pop())
     
-    def isSuperOp(self, c):
-        if c in ['*', '/']:
-            return True 
-        return False 
-    
-    def isLowOp(self, c):
-        if c in ['+', '-']:
-            return True 
-        return False 
-    
-    def isNum(self, c):
-        if '0'<=c and c<='9':
-            return True
-        return False 
-        
-    def count(self, a, b, op):
-        a = int(a)
-        b = int(b)
-        if op == '*':
-            return a * b
-        if op == '/':
-            return a / b
-        if op == '+':
-            return a + b
-        if op == '-':
-            return a - b
+    public int calculate(String s) {
+        s = s.replace(" ", "") ;
+    	LinkedList<Integer> nums = new LinkedList<Integer>() ;
+    	LinkedList<Character> ops = new LinkedList<Character>() ;
+
+    	Integer i=0 ;
+    	while(i < s.length()) {
+    		char word = s.charAt(i) ;
+
+    		if (isSuperOp(word)) {
+    			int nextNum = 0 ;
+            	int j = i+1;
+            	while(j<s.length() && isNum(s.charAt(j))) {
+            		nextNum = Integer.parseInt(s.charAt(j)+"") + nextNum*10 ;
+            		j++ ;
+            	}
+            	i = j-1 ;
+            	
+    			nums.addLast(nextNum) ;
+    			int b = nums.pollLast() ;
+    			int a = nums.pollLast() ;
+    			nums.addLast(count(a, b, word)) ;
+    		} else if (isLowOp(word)) {
+    			ops.addLast(word) ;
+    		} else if (isNum(word)) {
+    		    int nextNum = 0 ;
+            	int j = i;
+            	while(j<s.length() && isNum(s.charAt(j))) {
+            		nextNum = Integer.parseInt(s.charAt(j)+"") + nextNum*10 ;
+            		j++ ;
+            	}
+            	i = j-1 ;
+    			nums.addLast(nextNum) ;
+    		} else {
+    		    
+    		}
+
+    		i++ ;
+    	}
+
+    	while(ops.size() != 0) {
+    		char op = ops.pollFirst() ;
+    		int a = nums.pollFirst() ;
+    		int b = nums.pollFirst() ;
+    		nums.addFirst(count(a, b, op)) ;
+    	}
+
+    	return nums.pollFirst() ;
+    }
+
+    private int getNext(Integer i, String s) {
+    	int total = 0 ;
+    	int j = i + 1 ;
+    	while(j<s.length() && isNum(s.charAt(j))) {
+    		total = Integer.parseInt(s.charAt(j)+"") + total*10 ;
+    		j++ ;
+    	}
+    	i = j-1 ;
+    	
+    	return total ;
+    }
+
+   	private boolean isSuperOp(char c) {
+   		if (c=='*' || c=='/') {
+   			return true ;
+   		}
+   		return false ;
+   	}
+
+   	private boolean isLowOp(char c) {
+   		if (c=='+' || c=='-') {
+   			return true ;
+   		}
+   		return false ;
+   	}
+
+   	private boolean isNum(char c) {
+   		if ('0'<=c && c<='9') {
+   			return true ;
+   		}
+   		return false ;
+   	}
+
+   	private int count(int a, int b, char op) {
+   		switch(op) {
+   			case '*':
+   				return a * b ;
+   			case '/':
+   				return a / b ;
+   			case '+':
+   				return a + b ;
+   			case '-':
+   				return a - b ;
+   			default:
+   				return -1 ;
+   		}
+   	}
+
+}
