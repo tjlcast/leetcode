@@ -1,4 +1,7 @@
 void print_permutation(int n, int* A, int cur) {
+
+  /*打印n之前的所有数的全排列*/
+
   int i, j ;
 
   if (cur == n) {
