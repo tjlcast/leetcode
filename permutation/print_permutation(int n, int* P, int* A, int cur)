@@ -1,6 +1,6 @@
 void print_permutation(int n, int* P, int* A, int cur) {
 
-  /*打印P中的所有排列*/
+  /*打印P中的所有排列, 并且P是由小到大进行排序*/
   
   if (cur == n) {
   	for(int i=0; i<n; i++) printf("%d ", A[i]) ;
@@ -8,7 +8,9 @@ void print_permutation(int n, int* P, int* A, int cur) {
   }
   else {
 
-  	for (int i=0; i<n; i++) { // 尝试在A[cur]中填入各种整数
+  	for (int i=0; i<n; i++) 
+	if (!i || P[i] != P[i-1])
+	{ // 尝试在A[cur]中填入各种整数
 		int c1 = 0, c2 = 0 ;
 		
 		//统计当前数字出现的情况
