@@ -6,18 +6,16 @@ void print_permutation(int n, int* P, int* A, int cur) {
   }
   else {
 
-  	for (int i=1; i<=n; i++) { // 尝试在A[cur]中填入各种整数
-	      int c1 = 0, c2 = 0 ;
-        for (int j=0; j<cur; j++) if(A[j] == P[i]) c1++ ;
-        for (int j=0; j<n; j++) if (P[i] == P[j]) c2++ ;
+  	for (int i=0; i<n; i++) { // 尝试在A[cur]中填入各种整数
+		int c1 = 0, c2 = 0 ;
+		for (int j=0; j<cur; j++) if (A[j] == P[i]) c1++ ;
+		for (int j=0; j<n; j++) if (P[i] == P[j]) c2++ ;
         
-        if (c1 < c2) {
-          A[cur] = P[i] ;
-          print_permutation(n, P, A, cur+1) ;
-        }
-    }
-    
+		if (c1 < c2) { // 当前还有没有出现的i
+		  A[cur] = P[i] ;
+		  print_permutation(n, P, A, cur+1) ;
+		}
+	}
   }
-
 
 }
