@@ -10,7 +10,9 @@ void print_permutation(int n, int* A, int cur) {
   }
   else {
 
-  	for (int i=1; i<=n; i++) { // 尝试在A[cur]中填入各种整数
+  	for (int i=1; i<=n; i++) 
+	if (!i || P[i] != P[i-1])
+	{ // 尝试在A[cur]中填入各种整数
 	  	int ok = 1 ;
 	  	for(int j=0; j<cur; j++) { // 如果在A[cur]之前有相同的数据则不再填入
 	  		if (A[j] ==  i) ok = 0 ;
