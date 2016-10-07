@@ -1,0 +1,52 @@
+public class Solution {
+    
+    private String __author__ = "tangjialiang" ;
+    private String __V__ = "success_V" ;
+    private String __tips__ = "因为一个数的地位变化是最小的（也是最先的），从左向右找到第一个递增的数，之后这个数与它之后的数（都比该数大）进行交换.若没有找到递增的数，则需要对整个数组进行排序。" ;
+    
+    public void nextPermutation(int[] nums) {
+        int pos = nums.length-2 ;
+        for(; pos>=0 && nums[pos] >= nums[pos+1]; pos--) {}
+        
+        int tailPos = (pos+1<=nums.length-1) ? (pos+1) : (pos) ;
+        
+        int minVal = nums[tailPos] ;
+        int minPos = tailPos ;
+        
+        for(int i=tailPos; pos>=0 && i<nums.length; i++) {
+            if (nums[i]>nums[pos] && minVal>nums[i]) {
+                minVal = nums[i] ;
+                minPos = i ;
+            }
+        }
+        swap(nums, pos, minPos) ;
+        
+        sort(nums, tailPos, nums.length) ;
+        return ;
+    }
+    
+    private void swap(int[] nums, int pos1, int pos2) {
+        
+        // replace pos1 and pos2 
+        if (pos1 < 0) pos1 = 0 ;
+        int temp = nums[pos1] ;
+        nums[pos1] = nums[pos2] ;
+        nums[pos2] = temp ;
+        
+        return ;
+    }
+    
+    private void sort(int[] nums, int begin, int end) {
+        
+        //sort begin and end 
+        for(int i=begin; i<end-1; i++) {
+            for(int j=i+1; j<end; j++) {
+                if (nums[i] > nums[j]) {
+                    int temp = nums[i] ;
+                    nums[i] = nums[j] ;
+                    nums[j] = temp ;
+                }
+            }
+        }
+    }
+}
