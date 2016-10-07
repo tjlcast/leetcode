@@ -1,6 +1,9 @@
 void print_permutation(int n, int* P, int* A, int cur) {
 
-  /*打印P中的所有排列, 并且P是由小到大进行排序*/
+  /*
+  打印P中的所有排列, 并且P是由小到大进行排序
+  n：为P的大小
+  */
   
   if (cur == n) {
   	for(int i=0; i<n; i++) printf("%d ", A[i]) ;
