@@ -2,8 +2,7 @@ public class Solution {
     
     private String __author__ = "tangjialiang" ;
     private String __V__ = "success_V" ;
-    private String __tips__ = "因为一个数的地位变化是最小的（也是最先的），从左向右找到第一个递增的数，之后这个数与它之后的数（都比该数大）进行交换.若没有找到递增的数，则需要对整个数组进行排序。" ;
-    
+    private String __tips__ = "因为一个数的地位变化是最小的（也是最先的），从左向右找到第一个递增的数，之后这个数与它之后的数（都比该数大）进行交换,并对后面的位置进行排序.若没有找到递增的数，则需要对整个数组进行排序。" ;
     public void nextPermutation(int[] nums) {
         int pos = nums.length-2 ;
         for(; pos>=0 && nums[pos] >= nums[pos+1]; pos--) {}
