@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class _003LongestSubstringWithoutRepeatingCharacters {
   public static void main(String[] args) {
-    String s = "abc";
+    String s = "dvdf";
     int i = new Solution().lengthOfLongestSubstring(s);
     System.out.println(i);
   }
@@ -21,14 +21,11 @@ public class _003LongestSubstringWithoutRepeatingCharacters {
       for (int i = 0; i < s.length(); i++) {
         char c = s.charAt(i);
         if (characters.containsKey(c)) {
-          characters.clear();
-          int len = i - lastIdx;
-          maxLen = Math.max(maxLen, len);
-          lastIdx = i;
+          lastIdx = Math.max(lastIdx, characters.get(c) + 1);
         }
         characters.put(c, i);
+        maxLen = Math.max(maxLen, i - lastIdx + 1) ;
       }
-      maxLen = Math.max(maxLen, s.length() - lastIdx);
       return maxLen;
     }
   }
