@@ -3,7 +3,7 @@ package com.jialtang.leetcode;
 public class _011ContainerWithMostWater {
 
     public static void main(String[] args) {
-        int[] heights = {1,8,6,2,5,4,8,3,7};
+        int[] heights = {1, 8, 6, 2, 5, 4, 8, 3, 7};
         Solution solution = new Solution();
         int i = solution.maxArea(heights);
         System.out.println(i);

@@ -27,7 +27,7 @@ public class _0153Sum {
         public List<List<Integer>> threeSum(int[] nums) {
             ArrayList<List<Integer>> objects = new ArrayList<>();
             Arrays.sort(nums);
-            for (int r = nums.length - 1; r >= 2;) {
+            for (int r = nums.length - 1; r >= 2; ) {
                 int rest = 0 - nums[r];
                 int l = 0, m = r - 1;
                 while (l < m) {
@@ -49,7 +49,7 @@ public class _0153Sum {
                 }
 
                 r--;
-                while(r>=2 && nums[r]==nums[r+1]) r--;
+                while (r >= 2 && nums[r] == nums[r + 1]) r--;
             }
             return objects;
         }

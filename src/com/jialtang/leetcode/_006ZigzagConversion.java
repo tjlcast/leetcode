@@ -14,6 +14,7 @@ public class _006ZigzagConversion {
 
     static class Solution {
         String[] zip = null;
+
         public String convert(String s, int numRows) {
             if (numRows == 1) {
                 return s;
@@ -21,13 +22,13 @@ public class _006ZigzagConversion {
 
             int len = s.length();
             zip = new String[numRows];
-            for (int i=0; i<zip.length; i++) {
+            for (int i = 0; i < zip.length; i++) {
                 zip[i] = "";
             }
 
             int zipLen = numRows + numRows - 2;
 
-            for (int i=0; i<s.length(); i++) {
+            for (int i = 0; i < s.length(); i++) {
                 char c = s.charAt(i);
 
                 int i1 = i % zipLen;
@@ -39,7 +40,7 @@ public class _006ZigzagConversion {
             }
 
             String res = "";
-            for(int i=0; i<zip.length; i++) {
+            for (int i = 0; i < zip.length; i++) {
                 res = res + zip[i];
             }
             return res;
