@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _0153Sum {
+public class _015_3Sum {
     public static void main(String[] args) {
         int[] nums1 = {-1, 0, 1, 2, -1, -4};
         List<List<Integer>> lists1 = new Solution().threeSum(nums1);

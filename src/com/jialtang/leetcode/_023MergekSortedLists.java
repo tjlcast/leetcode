@@ -2,7 +2,7 @@ package com.jialtang.leetcode;
 
 import com.jialtang.leetcode.common.ListNode;
 
-public class _23MergekSortedLists {
+public class _023MergekSortedLists {
     public static void main(String[] args) {
         ListNode node = ListNode.Create.createNode(3);
         ListNode node2 = ListNode.Create.createNode(2);

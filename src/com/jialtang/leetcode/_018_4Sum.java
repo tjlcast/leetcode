@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class _184Sum {
+public class _018_4Sum {
 
     public static void main(String[] args) {
         int[] nums = {1, 0, -1, 0, -2, 2};
