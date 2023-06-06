@@ -1,5 +1,8 @@
 package com.jialtang.leetcode;
 
+/**
+ * https://zhuanlan.zhihu.com/p/401283711
+ */
 public class _044WildcardMatching {
 
   public static void main(String[] args) {
