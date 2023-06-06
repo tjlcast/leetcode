@@ -1,5 +1,7 @@
 package com.jialtang.leetcode;
 
+import java.util.Arrays;
+
 /**
  * https://zhuanlan.zhihu.com/p/401283711
  */
@@ -29,10 +31,8 @@ public class _044WildcardMatching {
       ss = s.toCharArray();
       pp = p.toCharArray();
       memo = new int[ss.length + 1][pp.length + 1];
-      for (int i = 0; i < memo.length; i++) {
-        for (int j = 0; j < memo[i].length; j++) {
-          memo[i][j] = -1;
-        }
+      for (int[] ints : memo) {
+        Arrays.fill(ints, -1);
       }
       return dp(0, 0);
     }
