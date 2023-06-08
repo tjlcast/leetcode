@@ -26,12 +26,12 @@ public class _058LengthofLastWord {
 
       while (r < s.length()) {
         if (s.charAt(r) == ' ') {
-          lastLen = (r - l!=0)?(r-l):(lastLen);
+          lastLen = (r - l != 0) ? (r - l) : (lastLen);
           l = r + 1;
         }
         r++;
       }
-      lastLen = (r - l!=0)?(r-l):(lastLen);
+      lastLen = (r - l != 0) ? (r - l) : (lastLen);
       return lastLen;
     }
   }

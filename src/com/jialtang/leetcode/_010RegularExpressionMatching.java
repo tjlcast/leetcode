@@ -1,8 +1,6 @@
 package com.jialtang.leetcode;
 
-/**
- * https://zhuanlan.zhihu.com/p/390804211
- */
+/** https://zhuanlan.zhihu.com/p/390804211 */
 public class _010RegularExpressionMatching {
 
   public static void main(String[] args) {

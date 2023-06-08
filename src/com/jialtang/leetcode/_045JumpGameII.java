@@ -31,7 +31,9 @@ public class _045JumpGameII {
       int i = nums.length - 2;
       while (i >= 0) {
         for (int j = i + 1; j <= Math.min(nums.length - 1, i + nums[i]); j++) {
-          steps[i] = Math.min((steps[j]>=Integer.MAX_VALUE)?(Integer.MAX_VALUE):(steps[j]+1), steps[i]);
+          steps[i] =
+              Math.min(
+                  (steps[j] >= Integer.MAX_VALUE) ? (Integer.MAX_VALUE) : (steps[j] + 1), steps[i]);
         }
         i--;
       }

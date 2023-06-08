@@ -36,7 +36,7 @@ public class _063UniquePathsII {
       if (obstacleGrid[i][j] == 1) return 0;
       if (i == rows - 1 && j == cols - 1) return 1;
 
-      if (can[i][j]!=-1) return can[i][j];
+      if (can[i][j] != -1) return can[i][j];
 
       int val = dfs(i + 1, j) + dfs(i, j + 1);
       can[i][j] = val;

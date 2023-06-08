@@ -59,7 +59,7 @@ public class _043MultiplyStrings {
                   sb.append(e);
                 }
               });
-      return (sb.length()==0)?("0"):(sb.toString());
+      return (sb.length() == 0) ? ("0") : (sb.toString());
     }
 
     private void reverse(char[] chars) {

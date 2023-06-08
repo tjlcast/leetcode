@@ -37,7 +37,7 @@ public class _051NQueens {
       for (int j = 0; j < n; j++) {
         if (check(matrix, i, j)) {
           matrix[i][j] = 1;
-          dfs(matrix, i+1);
+          dfs(matrix, i + 1);
           matrix[i][j] = 0;
         }
       }

@@ -2,9 +2,7 @@ package com.jialtang.leetcode;
 
 import java.util.Arrays;
 
-/**
- * https://zhuanlan.zhihu.com/p/401283711
- */
+/** https://zhuanlan.zhihu.com/p/401283711 */
 public class _044WildcardMatching {
 
   public static void main(String[] args) {

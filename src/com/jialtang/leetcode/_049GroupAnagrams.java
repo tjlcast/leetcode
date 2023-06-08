@@ -15,6 +15,7 @@ public class _049GroupAnagrams {
 
   static class Solution {
     List<List<String>> ans = new LinkedList<>();
+
     public List<List<String>> groupAnagrams(String[] strs) {
       HashMap<String, List<String>> map = new HashMap<>();
       for (String str : strs) {
@@ -23,7 +24,7 @@ public class _049GroupAnagrams {
         orDefault.add(str);
         map.put(code, orDefault);
       }
-      for (Map.Entry<String, List<String>> entry: map.entrySet()) {
+      for (Map.Entry<String, List<String>> entry : map.entrySet()) {
         ans.add(entry.getValue());
       }
       return ans;
@@ -31,11 +32,11 @@ public class _049GroupAnagrams {
 
     private String getHash(String str) {
       StringBuilder sb = new StringBuilder();
-      for (int i=0; i<26; i++) {
+      for (int i = 0; i < 26; i++) {
         char a = (char) ('a' + i);
         int total = 0;
-        for (int j=0; j<str.length(); j++) {
-          if (str.charAt(j)==a) {
+        for (int j = 0; j < str.length(); j++) {
+          if (str.charAt(j) == a) {
             total++;
           }
         }

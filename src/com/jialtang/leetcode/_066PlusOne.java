@@ -31,12 +31,12 @@ public class _066PlusOne {
       p = 0;
       int[] ans;
       if (carr > 0) {
-        ans = new int[digits.length+1];
+        ans = new int[digits.length + 1];
         ans[p++] = carr;
       } else {
         ans = new int[digits.length];
       }
-      for (int i=0; i<digits.length; i++) {
+      for (int i = 0; i < digits.length; i++) {
         ans[p++] = digits[i];
       }
       return ans;

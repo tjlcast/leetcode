@@ -10,9 +10,9 @@ public class _061RotateList {
     listNode = new Solution().rotateRight(node, 2000000000);
     System.out.println(listNode);
 
-        node = ListNode.Create.createNode(5);
-        listNode = new Solution().rotateRight(node, 2);
-        System.out.println(listNode);
+    node = ListNode.Create.createNode(5);
+    listNode = new Solution().rotateRight(node, 2);
+    System.out.println(listNode);
   }
 
   static class Solution {

@@ -33,7 +33,7 @@ public class _064MinimumPathSum {
       if (i >= rows || j >= cols) return Integer.MAX_VALUE;
       if (i == rows - 1 && j == cols - 1) return grid[i][j];
 
-      if (this.can[i][j]!=-1) return this.can[i][j];
+      if (this.can[i][j] != -1) return this.can[i][j];
       int val = grid[i][j] + Math.min(dfs(i + 1, j), dfs(i, j + 1));
       this.can[i][j] = val;
       return val;

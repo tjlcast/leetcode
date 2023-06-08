@@ -16,7 +16,7 @@ public class _048RotateImage {
       int rows = matrix.length;
       int cols = matrix[0].length;
       for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols && j < cols - 1- i; j++) {
+        for (int j = 0; j < cols && j < cols - 1 - i; j++) {
           int ii = cols - 1 - j;
           int jj = rows - 1 - i;
           swap(matrix, i, j, ii, jj);
@@ -25,7 +25,7 @@ public class _048RotateImage {
 
       for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-          if (i>=rows/2) continue;
+          if (i >= rows / 2) continue;
           int ii = rows - 1 - i;
           int jj = j;
           swap(matrix, i, j, ii, jj);

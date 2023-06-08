@@ -21,8 +21,6 @@ public class _060PermutationSequence {
     k = 3;
     permutation = new Solution().getPermutation(n, k);
     System.out.println(permutation);
-
-
   }
 
   static class Solution {

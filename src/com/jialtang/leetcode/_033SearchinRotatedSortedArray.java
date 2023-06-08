@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class _033SearchinRotatedSortedArray {
 
   public static void main(String[] args) {
-    int[] nums = new int[] {1,3,5};
+    int[] nums = new int[] {1, 3, 5};
     int target = 5;
     int search = new Solution().search(nums, target);
     System.out.println(search);
@@ -56,7 +56,7 @@ public class _033SearchinRotatedSortedArray {
         }
       } else {
         if (target > midVal && target <= nums[right]) {
-          pos = Arrays.binarySearch(nums, mid + 1, right+1, target);
+          pos = Arrays.binarySearch(nums, mid + 1, right + 1, target);
         } else {
           bSearch(nums, target, left, mid - 1);
         }
