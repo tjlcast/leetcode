@@ -6,6 +6,10 @@ public class _075SortColors {
   public static void main(String[] args) {
     int[] nums;
 
+    nums = new int[] {1, 2, 0};
+    new Solution().sortColors(nums);
+    System.out.println(Arrays.toString(nums));
+
     nums = new int[] {1, 0, 1};
     new Solution().sortColors(nums);
     System.out.println(Arrays.toString(nums));
@@ -33,19 +37,18 @@ public class _075SortColors {
       sort(nums, p + 1, r);
     }
 
-    private int partition(int[] nums, int l, int r) {
-      int p = l;
-      int val = nums[l];
+    private int partition(int[] nums, int left, int right) {
+      int val = nums[left];
+      int l = left;
+      int r = right;
 
       while (l < r) {
-        while (l < r && nums[r] >= val) r--;
-        while (l < r && nums[r] <= val) l++;
-        if (l < r) {
-          swap(nums, l, r);
-        }
+        while (l < r && nums[r] > val) r--;
+        while (l < r && nums[l] <= val) l++;
+        swap(nums, l, r);
       }
-      swap(nums, l, p);
-      return l;
+      swap(nums, left, r);
+      return r;
     }
 
     private void swap(int[] nums, int i, int j) {
