@@ -1,10 +1,10 @@
-package com.jialtang.leetcode.common.practice;
+package com.jialtang.leetcode.common.practice.QuickSort;
 
-public class QuickSort {
+public class QuickSort1 {
 
   public static void main(String[] args) {
     int[] arr = {3, 5, 2, 1, 43, 33, 22, 64, 74, 25, 13, 27, 98, 56, 100, 21, 7};
-    new QuickSort().quickSort(arr);
+    new QuickSort1().quickSort(arr);
     for (int x : arr) {
       System.out.print(x + " ");
     }
@@ -25,19 +25,18 @@ public class QuickSort {
   }
 
   public int partition(int[] arr, int left, int right) {
-    int i = left;
-    int key = arr[left];
-    while (left < right) {
-      while (left < right && arr[right] >= key) {
-        right--;
-      }
-      while (left < right && arr[left] <= key) {
-        left++;
-      }
-      swap(arr, left, right);
+    int p = arr[left];
+    int l = left;
+    int r = right;
+
+    while (l < r) {
+      while (l < r && arr[r] > p) r--;
+      while (l < r && arr[l] <= p) l++;
+      swap(arr, l, r);
     }
-    swap(arr, left, i);
-    return left;
+
+    swap(arr, left, r);
+    return r;
   }
 
   private void swap(int[] arr, int a, int b) {
