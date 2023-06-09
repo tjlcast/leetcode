@@ -9,6 +9,11 @@ public class _079WordSearch {
     String word;
     boolean ans;
 
+    board = new char[][] {{'A', 'B', 'C', 'E'}, {'S', 'F', 'E', 'S'}, {'A', 'D', 'E', 'E'}};
+    word = "ABCESEEEFS";
+    ans = new Solution().exist(board, word);
+    System.out.println("ans: " + ans);
+
     board = new char[][] {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
     word = "ABCCED";
     ans = new Solution().exist(board, word);
@@ -45,12 +50,13 @@ public class _079WordSearch {
     private boolean dp(int i, int j, int k, LinkedList<Integer> queue) {
       if (i < 0 || i >= rows) return false;
       if (j < 0 || j >= cols) return false;
-      if (queue.contains(i * rows + j)) return false;
+      if (queue.contains(i * cols + j)) return false;
       if (k >= word.length()) {
         return true;
       }
       if (board[i][j] == word.charAt(k)) {
-        queue.addLast(i * rows + j);
+        if (k == word.length() - 1) return true;
+        queue.addLast(i * cols + j);
         if (dp(i, j + 1, k + 1, queue)) return true;
         if (dp(i + 1, j, k + 1, queue)) return true;
         if (dp(i, j - 1, k + 1, queue)) return true;
