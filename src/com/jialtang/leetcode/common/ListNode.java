@@ -15,7 +15,27 @@ public class ListNode {
     this.next = next;
   }
 
-  @Override
+  public static ListNode merge(ListNode node1, ListNode node2) {
+    ListNode root = new ListNode();
+    ListNode node = root;
+    while(node1!=null || node2!=null) {
+      int val1 = Integer.MAX_VALUE, val2=val1;
+      if (node1!=null) val1 = node1.val;
+      if (node2!=null) val2 = node2.val;
+      if (val1 < val2) {
+        node.next = node1;
+        node = node.next;
+        node1 = node1.next;
+      } else {
+        node.next = node2;
+        node = node.next;
+        node2 = node2.next;
+      }
+    }
+    return root.next;
+  }
+
+    @Override
   public String toString() {
     if (this.next == null) {
       return this.val + "";
