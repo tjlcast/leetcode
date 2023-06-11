@@ -33,24 +33,20 @@ public class _081SearchinRotatedSortedArrayII {
     }
 
     private boolean dfs1(int[] nums, int left, int right, int target) {
-      if (left > right) return nums[left] == target;
+      if (left > right) return false;
 
-      boolean ans = false;
       int mid = (left + right) >> 1;
-      if (nums[mid] == target) {
-        return true;
-      }
+      if (nums[mid] == target) return true;
 
       if (nums[mid] < nums[right]) {
-        if (nums[mid] < target && target <= nums[right]) ans = dfs1(nums, mid + 1, right, target);
-        else ans = dfs1(nums, left, mid - 1, target);
+        if (nums[mid]<=target && target<=nums[right]) return dfs1(nums , mid+1, right, target);
+        else return dfs1(nums, left, mid-1, target);
       } else if (nums[mid] > nums[right]) {
-        if (nums[left] <= target && target < nums[mid]) ans = dfs1(nums, left, mid - 1, target);
-        else ans = dfs1(nums, mid + 1, right, target);
+        if (nums[left]<=target && target<=nums[mid]) return dfs1(nums, left, mid-1, target);
+        else return dfs1(nums, mid+1, right, target);
       } else {
-        ans = dfs1(nums, left, right - 1, target);
+        return dfs1(nums, left, right-1, target);
       }
-      return nums[left] == target || ans;
     }
 
     private boolean dfs(int[] nums, int left, int right, int target) {
