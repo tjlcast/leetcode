@@ -7,7 +7,7 @@ public class _083RemoveDuplicatesfromSortedList {
     ListNode nodeA = ListNode.Create.createNode(5);
     ListNode nodeB = ListNode.Create.createNode(9);
 
-    ListNode merge = ListNode.merge(nodeA, nodeB);
+    ListNode merge = ListNode.Merge(nodeA, nodeB);
     System.out.println(merge.toString());
 
     ListNode listNode = new Solution().deleteDuplicates(merge);
