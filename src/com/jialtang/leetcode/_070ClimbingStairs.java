@@ -25,7 +25,7 @@ public class _070ClimbingStairs {
 
     public int climbStairs(int n) {
       this.n = n;
-      this.dp = new int[n+1];
+      this.dp = new int[n + 1];
       Arrays.fill(this.dp, -1);
       return dfs(n);
     }
