@@ -39,13 +39,13 @@ public class _081SearchinRotatedSortedArrayII {
       if (nums[mid] == target) return true;
 
       if (nums[mid] < nums[right]) {
-        if (nums[mid]<=target && target<=nums[right]) return dfs1(nums , mid+1, right, target);
-        else return dfs1(nums, left, mid-1, target);
+        if (nums[mid] <= target && target <= nums[right]) return dfs1(nums, mid + 1, right, target);
+        else return dfs1(nums, left, mid - 1, target);
       } else if (nums[mid] > nums[right]) {
-        if (nums[left]<=target && target<=nums[mid]) return dfs1(nums, left, mid-1, target);
-        else return dfs1(nums, mid+1, right, target);
+        if (nums[left] <= target && target <= nums[mid]) return dfs1(nums, left, mid - 1, target);
+        else return dfs1(nums, mid + 1, right, target);
       } else {
-        return dfs1(nums, left, right-1, target);
+        return dfs1(nums, left, right - 1, target);
       }
     }
 
