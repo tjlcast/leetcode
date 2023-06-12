@@ -28,7 +28,7 @@ public class QuickSort2 {
     int val = arr[left];
     int p = left;
 
-    for (int i=left+1; i<=right; i++) {
+    for (int i = left + 1; i <= right; i++) {
       if (arr[i] < val) {
         p++;
         int t = arr[i];

@@ -15,13 +15,13 @@ public class ListNode {
     this.next = next;
   }
 
-  public static ListNode merge(ListNode node1, ListNode node2) {
+  public static ListNode Merge(ListNode node1, ListNode node2) {
     ListNode root = new ListNode();
     ListNode node = root;
-    while(node1!=null || node2!=null) {
-      int val1 = Integer.MAX_VALUE, val2=val1;
-      if (node1!=null) val1 = node1.val;
-      if (node2!=null) val2 = node2.val;
+    while (node1 != null || node2 != null) {
+      int val1 = Integer.MAX_VALUE, val2 = val1;
+      if (node1 != null) val1 = node1.val;
+      if (node2 != null) val2 = node2.val;
       if (val1 < val2) {
         node.next = node1;
         node = node.next;
@@ -35,7 +35,23 @@ public class ListNode {
     return root.next;
   }
 
-    @Override
+  public static ListNode Reverse(ListNode node1) {
+    ListNode root = new ListNode();
+    while (node1 != null) {
+      ListNode next = node1.next;
+      if (root.next == null) {
+        node1.next = null;
+        root.next = node1;
+      } else {
+        node1.next = root.next;
+        root.next = node1;
+      }
+      node1 = next;
+    }
+    return root.next;
+  }
+
+  @Override
   public String toString() {
     if (this.next == null) {
       return this.val + "";
