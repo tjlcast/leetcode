@@ -26,24 +26,15 @@ public class _090SubsetsII {
     }
 
     private void dfs(int idx, LinkedList<Integer> stack) {
-      if (idx > nums.length) return;
+      // if (idx > nums.length) return;
       ans.add(new LinkedList<>(stack));
 
-      int i = idx;
-      while (i < nums.length) {
-        if (stack.isEmpty()) {
-          stack.addLast(nums[i]);
-          dfs(idx + 1, stack);
-          stack.removeLast();
-        } else {
-          int lastN = stack.getLast();
-          if (nums[i] >= lastN) {
-            stack.addLast(nums[i]);
-            dfs(idx + 1, stack);
-            stack.removeLast();
-          }
-        }
-        i += 1;
+      for (int i = idx; i < nums.length; i++) {
+        if (i > idx && nums[i] == nums[i - 1]) continue;
+        stack.addLast(nums[i]);
+        dfs(i + 1, stack);
+        // dfs(idx+1, stack);
+        stack.removeLast();
       }
 
       return;
