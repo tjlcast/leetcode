@@ -19,6 +19,7 @@ public class _077Combinations {
   static class Solution {
     int n, k;
     List<List<Integer>> ans = new LinkedList<>();
+
     public List<List<Integer>> combine(int n, int k) {
       this.n = n;
       this.k = k;
@@ -35,10 +36,10 @@ public class _077Combinations {
       if (idx > this.n) return;
 
       queue.addLast(idx);
-      dfs(idx+1, queue);
+      dfs(idx + 1, queue);
       queue.removeLast();
 
-      dfs(idx+1, queue);
+      dfs(idx + 1, queue);
     }
   }
 }
