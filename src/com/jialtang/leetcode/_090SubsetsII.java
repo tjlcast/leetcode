@@ -8,9 +8,7 @@ public class _090SubsetsII {
   public static void main(String[] args) {
     int[] nums;
 
-    nums = new int[] {1, 2, 2};
-    List<List<Integer>> lists = new Solution().subsetsWithDup(nums);
-    lists.stream().forEach(e -> System.out.println(Arrays.toString(e.toArray())));
+
   }
 
   static class Solution {
